@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        section{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          
+        }
+        div{
+            width: 100%;
+            height: 30%;
+            /* border: 2px solid black; */
+         text-align: center;
+         padding: 30px;
+         font-size: 90px;
+        }
+        button{
+            padding: 20px 30px;
+            margin: 0px 20px ;
+            /* border: 2px solid black; */
+            border-radius: 10px;
+        }
+        input[type="text"]{
+            width: 100%;
+            height: 30%;
+            /* border: 2px solid black; */
+         text-align: center;
+         padding: 30px;
+         font-size: 90px;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+         outline: 5px solid rgb(69, 69, 112);
+         border-radius: 0%;
+         outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>Counter </div>
+        <div>
+        <form action="" id="form"> <p ></p>
+        <input type="text" value="0" id="test"></form>    
+       </div>
+        <div>
+            <button onmouseover="cntrl()" id="decnum">DECREASE</button>
+            <button onclick="reset()">RESET</button>
+            <button  onmouseover="inc_cntrl()" onmouseleave="" id="incnum">INCREASE</button>
+        </div>
+    </section>
+    <script>
+         
+               //set a variable with 0 value 
+            
+              function reset() {
+
+                document.getElementById("form").reset();
+document.getElementById("test").style.color="";
+
+}
+                //create a fun to increase th x 
+        function increase() {
+            let  x = document.getElementById("test").value;
+
+            document.getElementById("test").style.color="green";
+            ++x;
+
+            document.getElementById("test").value=x;
+           
+           
+        } 
+        //create fun to set the interval on increasing num with callback and clearinterval when mouse outs
+        function inc_cntrl(){
+            increase();
+            const myinterval =   setInterval(increase, 1000);
+            document.getElementById("incnum").addEventListener("mouseout",mouse_out);
+            function mouse_out() {
+            // window.alert("leave")
+     clearInterval(myinterval);
+        
+            }
+
+            
+        }
+            //create fun to set the interval on decreasing num with callback and clearinterval when mouse outs    
+             
+       function Dec_num() {
+        let  x = document.getElementById("test").value;
+
+
+       
+            document.getElementById("test").style.color="red";
+            --x;
+            document.getElementById("test").value=x;
+            
+       }
+       function cntrl() {
+        Dec_num();
+       let interval = setInterval(Dec_num, 1000);
+       document.getElementById("decnum").addEventListener("mouseout",clr_cntrl)
+       function clr_cntrl() {
+        
+        clearInterval(interval)
+       }
+        
+       }
+       
+
+       
+
+  
+      
+     
+    </script>
+</body>
+</html>

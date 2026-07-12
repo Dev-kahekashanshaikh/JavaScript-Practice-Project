@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1" id="myform">
+    <div>
+        <input type="text" name="" id="test" value="">
+
+    </div>
+    <div><input type="button" value="1" onclick="myform.test.value += '1'
+        ;
+    ">
+    <input type="button" value="2" onclick="run(2)">
+    <input type="button" value="3" onclick="myform.test.value += '3'">
+    <input type="button" value="4" onclick="run(4)">
+    <input type="button" value="5"></div>
+    <div><input type="button" value="+" onclick="form1.test.value += '+'">
+        <input type="button" value="-" onclick="form1.test.value += '-'">
+        <input type="button" value="*" onclick="run('*')">
+        <input type="button" value="/" onclick="run('/')">
+        <input type="button" value="=" onclick="form1.test.value= eval(form1.test.value)"></div>
+    </form>
+<form id="tb">
+    <table>
+
+        <TR>
+            <td> <input type="text" name="" id="ts" value="">
+            </td>
+        </TR>
+        <tr><td> <input type="button" value="3" onclick="tb.ts.value += '3'"></td></tr>
+    </table>
+    </form>
+    <script>
+        function run(name) {
+            document.getElementById("test").value += name ;
+            
+        }
+    </script>
+</body>
+</html>
